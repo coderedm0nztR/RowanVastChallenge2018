@@ -2,14 +2,14 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>VAST 2018</title>
+	<title>VAST MC2 2018</title>
 
 	<!-- GOOGLE EXTERNAL LIBS-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> </link>
 
 	<!-- D3 INTERNAL LIB-->
-	<script type="text/javascript" src="d3.v3.min.js"></script>
+	<script type="text/javascript" src="d3.v3.js"></script>
 
 	<!-- THIS SITE-->
 	<script type="text/javascript" src="vast.js"></script>
@@ -18,20 +18,31 @@
 </head>
 	<body>
 		<div class="menu">
-			<b>VAST Challenge</b>
+			<b>VAST MC2 Challenge</b>
 		</div>
-		<select id='chemicaltype' multiple="multiple" class='othercontent'>
-			<option value="Arsenic">Arsenic</option>
-			<option value="Lead">Lead</option>
-			<option value="Methylosmoline">Methylosmoline</option>
-			<option value="Mercury">Mercury</option>
-
-		</select>
+		<div class='othercontent'>
+			<b>Select Measure:</b>
+			<select id='chemicaltype' >
+				<option value="Arsenic">Arsenic</option>
+				<option value="Lead">Lead</option>
+				<option value="Methylosmoline" selected>Methylosmoline</option>
+				<option value="Iron">Iron</option>
+				<option value="Water temperature">Water temperature</option>
+				<option value="Cyanides">Cyanides</option>
+				<option value="AGOC-3A">AGOC-3A</option>
+			</select>
+			<div></div>
+			<b>Select Value Type:</b>
+			<select id='valuetype' >
+				<option value="Total">Total</option>
+				<option value="Average">Average</option>
+			</select>
+		</div>
 
 		
 			<div class="content">
 			</div>
-		<footer>Aaron Alnutt&copy; - 2019</footer>
+		<footer>Rowan University&copy; - 2019</footer>
 	</body>
 
 </html>
