@@ -35,7 +35,10 @@ $(document).ready(function(){
 
 		//filter out only items with the given measure and items from 3 locations
 		dataset = dataset.filter(function(x) { return x.measure == measure;});
-		dataset = dataset.filter(function(x) { return (x.location == 'Chai' || x.location == 'Kohsoom' || x.location == 'Somchair') && x.year > 2008});
+		dataset = dataset.filter(function(x) { 
+			return (x.location == 'Chai' || x.location == 'Kohsoom' || x.location == 'Somchair' || x.location == 'Boonsri' || x.location == 'Kannika') 
+			&& x.year > 2008
+		});
 
 		console.log(dataset);
 
@@ -65,6 +68,8 @@ $(document).ready(function(){
 		var location1 = getDataSet(dataset, 'Kohsoom');
 		var location2 = getDataSet(dataset, 'Chai');
 		var location3 = getDataSet(dataset, 'Somchair');
+		var location4 = getDataSet(dataset, 'Boonsri');
+		var location5 = getDataSet(dataset, 'Kannika');
 
 
 
@@ -356,11 +361,222 @@ $(document).ready(function(){
 			.attr('y', '190')
 			.attr('font-size', '15')
 			.attr('x', '540');
-		});
+		
+
 
 		//-----------------------------------------------------//	
 		//END LOCATION 3 GROUP---------------------------------//
 		//-----------------------------------------------------//
+
+
+		//..............................................................
+
+
+		//-----------------------------------------------------//	
+		//BEGIN LOCATION 4 GROUP-------------------------------//
+		//-----------------------------------------------------//
+
+		var g4 = svg.selectAll('.data4')
+			.data(location4)
+			.enter()
+			.append('g').attr('class', 'data4');
+				
+
+
+		g4.append('rect')
+			.attr("class", "bar")
+			.attr('x',  function(d, i){
+				return 380 + (25 * i)  + (5 * i);
+			})
+			//.attr('y', '170')
+			.attr('y', function(d){
+				//console.log(d);
+				var h = (((d.value / d.total) * 2));
+				if (h > 100){
+					h = 100;
+				}
+				return 60 + 30 - h;
+			}) 
+			.attr('width', '25')
+			.attr('stroke', 'grey')
+			.attr("height", function(d) {
+				var barHeight = (d.value / d.total) * 2;
+				if (barHeight > 100)
+				{
+					barHeight = 100;
+				}
+				return barHeight + "";
+			})
+			.attr('fill', function(d){
+				if ((d.value / d.total) * 2 > 100){
+					return 'pink';
+				}
+				else{
+					return 'lightgreen';
+				}
+			});//.attr('fill', function(d){
+				
+		g4.append('text')
+			.style("fill", "black")
+			.style('font-weight', 'bold')
+		    .text(function(d) {
+		      	console.log(d['value']);
+		        return Number(d['value'].toFixed(1));
+		    })
+		    .attr('x',  function(d, i){
+					return 380 + (25 * i) + (5 * i);
+			})
+			//.attr('y', '170')
+			.attr('y', function(d){
+				//console.log(d);
+				var h = (((d.value / d.total) * 2));
+				if (h > 100){
+					h = 100;
+				}
+				return 60 + 25 - h;
+			}) ;
+
+		g4.append('text')
+			.style("fill", "black")
+			.style('font-weight', 'bold')
+		    .text(function(d) {
+		      	console.log(d['year']);
+			    return Number(d['year']);
+			    })
+		    .attr('x',  function(d, i){
+					return 380 + (25 * i)  + (5 * i);
+			})
+			//.attr('y', '170')
+			.attr('y', function(d){
+				//console.log(d);
+				var h = (((d.value / d.total) * 2));
+				if (h > 100){
+					h = 100;
+				}
+				return 60 + 45;
+			}) ;
+
+		g4.append('text')
+			.style('fill', 'black')
+			.style('font-weight', 'bold')
+			.text('Boonsri')
+			.attr('y', '120')
+			.attr('font-size', '15')
+			.attr('x', '380');
+
+
+
+		//-----------------------------------------------------//	
+		//END LOCATION 4 GROUP---------------------------------//
+		//-----------------------------------------------------//
+
+	
+
+		//..............................................................
+
+
+		//-----------------------------------------------------//	
+		//BEGIN LOCATION 5 GROUP-------------------------------//
+		//-----------------------------------------------------//
+
+		var g5 = svg.selectAll('.data5')
+			.data(location5)
+			.enter()
+			.append('g').attr('class', 'data5');
+				
+
+
+		g5.append('rect')
+			.attr("class", "bar")
+			.attr('x',  function(d, i){
+				return 420 + (25 * i)  + (5 * i);
+			})
+			//.attr('y', '170')
+			.attr('y', function(d){
+				//console.log(d);
+				var h = (((d.value / d.total) * 2));
+				if (h > 100){
+					h = 100;
+				}
+				return 360 + 30 - h;
+			}) 
+			.attr('width', '25')
+			.attr('stroke', 'grey')
+			.attr("height", function(d) {
+				var barHeight = (d.value / d.total) * 2;
+				if (barHeight > 100)
+				{
+					barHeight = 100;
+				}
+				return barHeight + "";
+			})
+			.attr('fill', function(d){
+				if ((d.value / d.total) * 2 > 100){
+					return 'pink';
+				}
+				else{
+					return 'lightgreen';
+				}
+			});//.attr('fill', function(d){
+				
+		g5.append('text')
+			.style("fill", "black")
+			.style('font-weight', 'bold')
+		    .text(function(d) {
+		      	console.log(d['value']);
+		        return Number(d['value'].toFixed(1));
+		    })
+		    .attr('x',  function(d, i){
+					return 420 + (25 * i) + (5 * i);
+			})
+			//.attr('y', '170')
+			.attr('y', function(d){
+				//console.log(d);
+				var h = (((d.value / d.total) * 2));
+				if (h > 100){
+					h = 100;
+				}
+				return 360 + 25 - h;
+			}) ;
+
+		g5.append('text')
+			.style("fill", "black")
+			.style('font-weight', 'bold')
+		    .text(function(d) {
+		      	console.log(d['year']);
+			    return Number(d['year']);
+			    })
+		    .attr('x',  function(d, i){
+					return 420 + (25 * i)  + (5 * i);
+			})
+			//.attr('y', '170')
+			.attr('y', function(d){
+				//console.log(d);
+				var h = (((d.value / d.total) * 2));
+				if (h > 100){
+					h = 100;
+				}
+				return 360 + 45;
+			}) ;
+
+		g5.append('text')
+			.style('fill', 'black')
+			.style('font-weight', 'bold')
+			.text('Kannika')
+			.attr('y', '425')
+			.attr('font-size', '15')
+			.attr('x', '450');
+
+		
+
+		//-----------------------------------------------------//	
+		//END LOCATION 5 GROUP---------------------------------//
+		//-----------------------------------------------------//
+
+		});
+
+
+
 
 }
 
